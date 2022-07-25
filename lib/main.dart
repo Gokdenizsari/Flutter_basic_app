@@ -11,7 +11,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "My Counter App",
-      theme: ThemeData(primarySwatch: Colors.purple),
+      theme: ThemeData(
+          primarySwatch: Colors.purple,
+          textTheme: TextTheme(
+              headline1: TextStyle(
+                  color: Colors.orange.shade400, fontWeight: FontWeight.bold))),
       home: MyHomePage(),
     );
   }
@@ -40,11 +44,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Text(
               "Number of button presses",
-              style: TextStyle(fontSize: 24, color: Colors.teal),
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.red.shade600,
+              ),
             ),
             Text(
               _sayac.toString(),
-              style: TextStyle(fontSize: 48),
+              style: Theme.of(context).textTheme.headline1,
             )
           ],
         ),
