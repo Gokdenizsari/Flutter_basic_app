@@ -1,52 +1,53 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class MyCounterPage extends StatefulWidget {
+  MyCounterPage({Key? key}) : super(key: key);
 
   @override
-  _MyHomePage createState() => _MyHomePage();
+  _MyCounterPageState createState() => _MyCounterPageState();
 }
 
-class _MyHomePage extends State<MyHomePage> {
+class _MyCounterPageState extends State<MyCounterPage> {
   int _sayac = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Scaffold(
+    debugPrint('myhomepage build çalıştı');
+    return Scaffold(
       appBar: AppBar(
-        title: Text("My Counter AppBar"),
+       
+        title: Text('My Counter AppBar'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Number of button presses",
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.red.shade600,
-              ),
-            ),
+            MyNewTextWidget(),
             Text(
               _sayac.toString(),
               style: Theme.of(context).textTheme.headline1,
-            )
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          sayaciarttir();
+          debugPrint('buton tıklandı ve sayac değeri $_sayac');
+
+          sayaciArttir();
         },
         child: Icon(Icons.add),
       ),
-    ));
+    );
   }
 
-  void sayaciarttir() {
-    setState(() {});
-    _sayac++;
+  void sayaciArttir() {
+    print('1');
+    setState(() {
+      _sayac++;
+      print('2');
+    });
+    print('3');
   }
 }
 
@@ -58,11 +59,8 @@ class MyNewTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      "Number of button presses",
-      style: TextStyle(
-        fontSize: 24,
-        color: Colors.red.shade600,
-      ),
+      'Butona basılma miktarı',
+      style: TextStyle(fontSize: 24),
     );
   }
 }
